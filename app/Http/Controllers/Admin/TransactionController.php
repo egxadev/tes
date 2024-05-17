@@ -98,7 +98,7 @@ class TransactionController extends Controller
 
             DB::commit();
 
-            return redirect()->route('admin.transactions.index')->with(['success' => 'Data Berhasil Disimpan!']);
+            return redirect()->route('admin.transactions.show', $transaction->id)->with(['success' => 'Data Berhasil Disimpan!']);
         } catch (\Exception $e) {
             DB::rollback();
 
@@ -116,7 +116,7 @@ class TransactionController extends Controller
     {
         $breadcrumb = [
             (object) ['name' => 'Transaksi', 'link' => route('admin.transactions.index')],
-            (object) ['name' => 'Tambah Transaksi', 'link' => route('admin.transactions.create')],
+            (object) ['name' => 'Detail Transaksi', 'link' => route('admin.transactions.show', $transaction->id)],
         ];
 
         $transaction->load('product');
