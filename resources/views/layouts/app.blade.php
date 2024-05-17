@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title') &mdash; My RPJ</title>
+    <title>@yield('title') &mdash; EXAMPLE</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('library/bootstrap/dist/css/bootstrap.min.css') }}">
@@ -25,20 +25,6 @@
             background: red !important;
         }
     </style>
-
-    <!-- Start GA -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-94034622-3');
-    </script>
-    <!-- END GA -->
 </head>
 </head>
 
@@ -83,45 +69,6 @@
     <!-- Template JS File -->
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-
-    <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
-    <script type="module">
-        import {
-            initializeApp
-        } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js'
-
-        // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-        import {
-            getAnalytics
-        } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js'
-
-        // Add Firebase products that you want to use
-        import {
-            getAuth
-        } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js'
-        import {
-            getFirestore
-        } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js'
-
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyAc-lsbNVHZ3pG_ovMDCSlIzKzBX6gCeao",
-            authDomain: "risky-plakat.firebaseapp.com",
-            projectId: "risky-plakat",
-            storageBucket: "risky-plakat.appspot.com",
-            messagingSenderId: "1057881599008",
-            appId: "1:1057881599008:web:4d672ca9a10b374328e045",
-            measurementId: "G-SEMFLCLFSH"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    </script>
 
     <script>
         @if (session()->has('success'))
@@ -186,7 +133,6 @@
                 });
         }
     </script>
-
 </body>
 
 </html>
