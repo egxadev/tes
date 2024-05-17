@@ -14,6 +14,8 @@
             <div class="card">
                 <div class="card-header d-inline">
                     <h4 class="float-left">{{ end($breadcrumb)->name }}</h4>
+                    <a href="{{ route('admin.products.create') }}" class="btn btn-warning float-right"><i
+                            class="far fa-edit fa-lg"></i> Tambah</a>
                     <div class="clearfix"></div>
                 </div>
                 <div class="card-body">
@@ -25,6 +27,7 @@
                                     <th>Nama</th>
                                     <th>Harga</th>
                                     <th>Stok</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -66,6 +69,18 @@
                     {
                         data: 'stock',
                     },
+                    {
+                        data: 'action',
+                        searchable: false,
+                        orderable: false,
+                        className: 'text-center',
+                        render: function(id) {
+                            return `
+                            <button onClick="deleteAction(this.id, '/admin/products/${id}')" class="btn btn-danger text-white" id="${id}">
+                                <i class="far fa-trash-alt fa-lg"></i>
+                            </button>`;
+                        }
+                    }
                 ]
             });
 

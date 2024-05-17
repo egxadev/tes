@@ -21,6 +21,7 @@ Route::get('/', function () {
 })->middleware('guest');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth']], function () {
-    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    // Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    Route::resource('/products', ProductController::class);
     Route::resource('/transactions', TransactionController::class);
 });
